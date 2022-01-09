@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstract
+namespace Business.Abstract
 {
-    public interface IVehicleDal:IEntityRepository<Car>
+    public interface IBrandService
     {
+        List<Brand> GetAll();
+        Brand GetById(int brandId);
     }
 }

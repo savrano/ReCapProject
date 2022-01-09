@@ -2,10 +2,41 @@
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 
-VehicleManager vehicleManager = new VehicleManager(new EfCarDal());
 
-foreach (var item in vehicleManager.GetCarsByBrandId(1))
+//CarTest();
+//ColorTest();
+//BrandTest();
+
+void ColorTest()
 {
-    Console.WriteLine(item.Description);
+    ColorManager colorManager = new ColorManager(new EfColorDal());
 
+    foreach (var item in colorManager.GetAll())
+    {
+        Console.WriteLine(item.ColorName);
+
+    }
 }
+void BrandTest()
+{
+    BrandManager brandManager = new BrandManager(new EfBrandDal());
+
+    foreach (var item in brandManager.GetAll())
+    {
+        Console.WriteLine(item.BrandName);
+
+    }
+}
+
+void CarTest()
+{
+    CarManager carManager = new CarManager(new EfCarDal());
+
+    foreach (var item in carManager.GetCarDetails())
+    {
+        Console.WriteLine(item.BrandName + "/" + item.ColorName +"/" + item.DailyPrice);
+
+    }
+}
+
+

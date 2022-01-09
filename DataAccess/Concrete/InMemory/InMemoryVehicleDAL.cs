@@ -1,6 +1,6 @@
 ﻿using DataAccess.Abstract;
-using Entities.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryVehicleDAL : IVehicleDal
+    public class InMemoryVehicleDAL : ICarDal
     {
         List<Car> _cars;
         public InMemoryVehicleDAL()
@@ -51,6 +51,11 @@ namespace DataAccess.Concrete.InMemory
         public List<Car> GetByID(int carId)
         {
             return _cars.Where(p => p.CarID == carId).ToList();
+        }
+
+        public List<CarDetailsDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
