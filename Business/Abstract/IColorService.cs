@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IColorService
+    public interface IColorService: IBaseEntityService<Color>
     {
-        List<Color> GetAll();
-        Color GetById(int colorId);
+
     }
 }

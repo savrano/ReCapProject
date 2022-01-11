@@ -5,37 +5,39 @@ using DataAccess.Concrete.InMemory;
 
 //CarTest();
 //ColorTest();
-//BrandTest();
 
 void ColorTest()
 {
     ColorManager colorManager = new ColorManager(new EfColorDal());
 
-    foreach (var item in colorManager.GetAll())
+    var result = colorManager.GetAll();
+
+    if (result.Success==true)
     {
-        Console.WriteLine(item.ColorName);
+        foreach (var item in result.Data)
+        {
+            Console.WriteLine(item.ColorName);
 
-    }
-}
-void BrandTest()
-{
-    BrandManager brandManager = new BrandManager(new EfBrandDal());
-
-    foreach (var item in brandManager.GetAll())
-    {
-        Console.WriteLine(item.BrandName);
-
-    }
+        }
+    }  
 }
 
 void CarTest()
 {
     CarManager carManager = new CarManager(new EfCarDal());
 
-    foreach (var item in carManager.GetCarDetails())
-    {
-        Console.WriteLine(item.BrandName + "/" + item.ColorName +"/" + item.DailyPrice);
+    var result = carManager.GetCarDetails();
 
+    if (result.Success == true)
+    {
+        foreach (var item in result.Data)
+        {
+            Console.WriteLine(item.BrandName + "/" + item.DailyPrice);
+        }
+    }
+    else
+    {
+        Console.WriteLine(result.Message);
     }
 }
 

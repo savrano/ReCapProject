@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IBrandService
+    public interface IBrandService: IBaseEntityService<Brand>
     {
-        List<Brand> GetAll();
-        Brand GetById(int brandId);
+
     }
 }
