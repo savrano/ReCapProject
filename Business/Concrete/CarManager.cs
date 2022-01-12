@@ -17,7 +17,7 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal ;
-
+        
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
@@ -29,7 +29,7 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.ProductsListed) ;
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.ProductsListed);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
