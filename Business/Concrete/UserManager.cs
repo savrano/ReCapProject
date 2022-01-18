@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -20,13 +21,13 @@ namespace Business.Concrete
         public IResult Add(User entity)
         {
             _userDal.Add(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(User entity)
         {
             _userDal.Delete(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<User>> GetAll()
@@ -42,7 +43,7 @@ namespace Business.Concrete
         public IResult Update(User entity)
         {
             _userDal.Update(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
     }
 }

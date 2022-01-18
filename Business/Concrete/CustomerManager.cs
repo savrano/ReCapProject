@@ -21,13 +21,13 @@ namespace Business.Concrete
         public IResult Add(Customer entity)
         {
             _customerDal.Add(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Customer entity)
         {
             _customerDal.Delete(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<Customer>> GetAll()
@@ -43,7 +43,7 @@ namespace Business.Concrete
         public IResult Update(Customer entity)
         {
             _customerDal.Update(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
     }
 }

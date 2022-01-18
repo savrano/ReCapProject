@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -27,7 +28,7 @@ namespace Business.Concrete
                 return new ErrorResult();
             }
             _rentalDal.Add(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult CheckReturnDate(Rental rental)
@@ -42,7 +43,7 @@ namespace Business.Concrete
         public IResult Delete(Rental entity)
         {
             _rentalDal.Delete(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -63,7 +64,7 @@ namespace Business.Concrete
         public IResult Update(Rental entity)
         {
             _rentalDal.Update(entity);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
     }
 }
